@@ -120,17 +120,17 @@ public class WorldController {
 	}
 	public void checkAnimationAndSoundEffect() {
     	if(explosionCounter!=-1){
-            if(explosionCounter==20){removeexpflag=true;explosionCounter=-1; audio.stop(); audio.setCurrent("game");}
+            if(explosionCounter==10){removeexpflag=true;explosionCounter=-1; audio.stop(); audio.setCurrent("game");}
             else{explosionCounter++;}
         }
 
         if(bonuscounter!=-1){
-            if(bonuscounter==20){removebonus=true;bonuscounter=-1; audio.stop();audio.setCurrent("game");
+            if(bonuscounter==10){removebonus=true;bonuscounter=-1; audio.stop();audio.setCurrent("game");
             }
             else{bonuscounter++;}
         }
         if(highScoreSound!=-1){
-            if(highScoreSound==10){
+            if(highScoreSound==5){
             	highScoreSound=-1; audio.stop();
             }
             else{highScoreSound++;}
@@ -212,7 +212,7 @@ public class WorldController {
                             exp.setY(temppp.getY());
                             exp.setX(temppp.getX());
                             playAnimationSound("bomb");
-                            moving.add(exp);
+                            moving.add(0,exp);
                             explosionCounter=0;
                         }
                         else if(((fallingObject)temppp).getSerial()==0){
@@ -220,7 +220,7 @@ public class WorldController {
                             bonus.setX(temppp.getX()+40);
                             playAnimationSound("bonus");
                             bonuscounter=0;
-                            moving.add(bonus);
+                            moving.add(0,bonus);
                         }
                     }
                 }).start();
