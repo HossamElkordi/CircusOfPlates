@@ -16,7 +16,7 @@ public class clownObject implements GameObject, Cloneable{
     private int x;
     private int y;
     private boolean visible;
-    String path = "CircusPlates"+System.getProperty("file.separator")+"res" + System.getProperty("file.separator") +"Images"+System.getProperty("file.separator") + "clown.png";
+    String path = System.getProperty("user.dir")+System.getProperty("file.separator")+"res" + System.getProperty("file.separator") +"Images"+System.getProperty("file.separator") + "clown.png";
 
 
     public clownObject(int posX, int posY){

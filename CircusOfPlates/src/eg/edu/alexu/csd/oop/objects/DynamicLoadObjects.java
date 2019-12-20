@@ -17,7 +17,7 @@ public class DynamicLoadObjects {
 	
 	private static DynamicLoadObjects object;
 	
-	private final String jarsPath = "CircusPlates" + System.getProperty("file.separator") + "res" + System.getProperty("file.separator") + "Jars";
+	private final String jarsPath = System.getProperty("user.dir") + System.getProperty("file.separator") + "res" + System.getProperty("file.separator") + "Jars";
 	
 	private List<Class<GameObject>> loadedCls;
 

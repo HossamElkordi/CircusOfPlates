@@ -24,10 +24,10 @@ public class bonusObj extends fallingObject {
         // create a bunch of buffered images and place into an array, to be displayed sequentially
         try {
             for(int i=0;i<4;i++){
-                spriteImages[i] = ImageIO.read(new File("CircusPlates"+ System.getProperty("file.separator") + "res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator") +"bonus"+i+".png"));
+                spriteImages[i] = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator") + "res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator") +"bonus"+i+".png"));
             }
             for(int i=4;i<8;i++){
-                spriteImages[i] = ImageIO.read(new File("CircusPlates"+ System.getProperty("file.separator") + "res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator") +"bonus"+(7-i)+".png"));
+                spriteImages[i] = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator") + "res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator") +"bonus"+(7-i)+".png"));
             }
 
 

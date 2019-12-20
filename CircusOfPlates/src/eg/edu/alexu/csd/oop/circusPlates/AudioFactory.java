@@ -13,7 +13,7 @@ import javafx.scene.media.MediaPlayer;
 @SuppressWarnings("restriction")
 public class AudioFactory {
 
-	private final String themesPath = "CircusPlates" + System.getProperty("file.separator") + "res" + System.getProperty("file.separator") + "Themes";
+	private final String themesPath = System.getProperty("user.dir") + System.getProperty("file.separator") + "res" + System.getProperty("file.separator") + "Themes";
 	private final String extension = ".mp3";
 
 	private static AudioFactory audios;

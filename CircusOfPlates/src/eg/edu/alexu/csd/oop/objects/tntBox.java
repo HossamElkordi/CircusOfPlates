@@ -15,7 +15,7 @@ public class tntBox extends fallingObject{
     public tntBox(){
         // create a bunch of buffered images and place into an array, to be displayed sequentially
         try {
-            spriteImages[0] = ImageIO.read(new File("CircusPlates"+ System.getProperty("file.separator") + "res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator")  +"tntsmall.png"));
+            spriteImages[0] = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator") + "res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator")  +"tntsmall.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

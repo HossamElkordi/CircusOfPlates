@@ -38,13 +38,13 @@ private static final long serialVersionUID = 1L;
 		audio = AudioFactory.getInstance();
 		cl = new CircusLogger();
 		try {
-			mainImage = ImageIO.read(new File("CircusPlates"+ System.getProperty("file.separator")+"res" + System.getProperty("file.separator") + "Images" +System.getProperty("file.separator")+"creepyClown.jpg"));
-			start = ImageIO.read(new File("CircusPlates"+ System.getProperty("file.separator")+"res" + System.getProperty("file.separator") + "Images"+System.getProperty("file.separator") + "Start_BTN.png"));
-			exit = ImageIO.read(new File("CircusPlates"+ System.getProperty("file.separator")+"res" + System.getProperty("file.separator") + "Images"+System.getProperty("file.separator") + "EXIT_BTN.png"));
-			infoImage = ImageIO.read(new File("CircusPlates"+ System.getProperty("file.separator")+"res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator") + "INFO_BTN.png"));
-			night = ImageIO.read(new File("CircusPlates"+ System.getProperty("file.separator")+"res" + System.getProperty("file.separator") + "Images"+System.getProperty("file.separator") + "nightCircusImg.png"));
-			fire = ImageIO.read(new File("CircusPlates"+ System.getProperty("file.separator")+"res" + System.getProperty("file.separator") + "Images"+System.getProperty("file.separator") + "fireCircusImg.png"));
-			ice = ImageIO.read(new File("CircusPlates"+ System.getProperty("file.separator")+"res" + System.getProperty("file.separator") + "Images"+System.getProperty("file.separator") + "iceCircusImg.png"));
+			mainImage = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator")+"res" + System.getProperty("file.separator") + "Images" +System.getProperty("file.separator")+"creepyClown.jpg"));
+			start = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator")+"res" + System.getProperty("file.separator") + "Images"+System.getProperty("file.separator") + "Start_BTN.png"));
+			exit = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator")+"res" + System.getProperty("file.separator") + "Images"+System.getProperty("file.separator") + "EXIT_BTN.png"));
+			infoImage = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator")+"res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator") + "INFO_BTN.png"));
+			night = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator")+"res" + System.getProperty("file.separator") + "Images"+System.getProperty("file.separator") + "nightCircusImg.png"));
+			fire = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator")+"res" + System.getProperty("file.separator") + "Images"+System.getProperty("file.separator") + "fireCircusImg.png"));
+			ice = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator")+"res" + System.getProperty("file.separator") + "Images"+System.getProperty("file.separator") + "iceCircusImg.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

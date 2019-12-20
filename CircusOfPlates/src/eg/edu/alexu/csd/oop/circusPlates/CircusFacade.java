@@ -8,9 +8,9 @@ import eg.edu.alexu.csd.oop.worlds.clownWorld;
 
 public class CircusFacade {
 
-	private final String FIRE_PATH  =  "CircusPlates"+ System.getProperty("file.separator") + "res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator")  + "fireCircusImg.png";
-	private final String NIGHT_PATH = "CircusPlates"+ System.getProperty("file.separator")+"res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator") + "nightCircusImg.png";
-	private final String ICE_PATH   = "CircusPlates"+ System.getProperty("file.separator")+"res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator") + "iceCircusImg.png";
+	private final String FIRE_PATH  =  System.getProperty("user.dir") + System.getProperty("file.separator") + "res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator")  + "fireCircusImg.png";
+	private final String NIGHT_PATH = System.getProperty("user.dir") + System.getProperty("file.separator")+"res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator") + "nightCircusImg.png";
+	private final String ICE_PATH   = System.getProperty("user.dir") + System.getProperty("file.separator")+"res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator") + "iceCircusImg.png";
 	
 	private static GameController controller;
 	

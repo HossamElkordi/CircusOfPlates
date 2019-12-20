@@ -233,7 +233,7 @@ public class clownWorld implements World{
 
     	Image img = null;
     	try {
-			img = ImageIO.read(new File("CircusPlates"+System.getProperty("file.separator")+"res" + System.getProperty("file.separator") +"Images"+System.getProperty("file.separator") + name + ".png"));
+			img = ImageIO.read(new File(System.getProperty("user.dir")+System.getProperty("file.separator")+"res" + System.getProperty("file.separator") +"Images"+System.getProperty("file.separator") + name + ".png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -78,13 +78,13 @@ private static final long serialVersionUID = 1L;
 		replayBtn.setBounds(123, 235, 54, 54);
 		
 		try {
-			mainImage = ImageIO.read(new File("CircusPlates"+System.getProperty("file.separator")+"res" + 
+			mainImage = ImageIO.read(new File(System.getProperty("user.dir")+System.getProperty("file.separator")+"res" + 
 					System.getProperty("file.separator") +"Images"+ System.getProperty("file.separator") + "creepyClown.jpg"));
-			resumeImage = ImageIO.read(new File("CircusPlates"+System.getProperty("file.separator")+"res" + 
+			resumeImage = ImageIO.read(new File(System.getProperty("user.dir")+System.getProperty("file.separator")+"res" + 
 					System.getProperty("file.separator") +"Images"+System.getProperty("file.separator") + "Play_BTN.png"));
-			menuImage = ImageIO.read(new File("CircusPlates"+System.getProperty("file.separator")+"res" + 
+			menuImage = ImageIO.read(new File(System.getProperty("user.dir")+System.getProperty("file.separator")+"res" + 
 					System.getProperty("file.separator") +"Images"+System.getProperty("file.separator") + "Menu_BTN.png"));
-			replayImage = ImageIO.read(new File("CircusPlates"+System.getProperty("file.separator")+"res" + 
+			replayImage = ImageIO.read(new File(System.getProperty("user.dir")+System.getProperty("file.separator")+"res" + 
 					System.getProperty("file.separator") +"Images"+System.getProperty("file.separator") + "Replay_BTN.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
