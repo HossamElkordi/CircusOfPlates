@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -37,13 +38,13 @@ public class WorldController {
     private int lastxindex = 0;
     private int[] xes = {40, 140, 240, 340, 440, 540, 640, 740, 840, 940, 1040, 1140};
     private GameObject top = null;
-    private cratesFactory a = cratesFactory.getInstance();
+    private cratesFactory a;
     private LevelContext lvlContext;
     private originator Originator = new originator();
     private boolean removeexpflag = false, removebonus = false;
     private AudioFactory audio;
     private GameObject temp0;
-    private CareTaker tem = new CareTaker();
+    private CareTaker tem = CareTaker.getInstance();
     private int explosionCounter = -1, bonuscounter = -1, highScoreSound = -1;
     private GameObject exp = new explosion(0,0), temppp, bonus = new bonusObj(0,0);
     private ObSubject ob;
@@ -52,7 +53,8 @@ public class WorldController {
     private boolean hs = false;
     private CircusLogger cl;
     
-    public WorldController() {
+    public WorldController() throws URISyntaxException {
+    	a = cratesFactory.getInstance();
     	cl = new CircusLogger();
     	audio = AudioFactory.getInstance();
     	lvlContext = LevelContext.getInstance();
@@ -61,7 +63,7 @@ public class WorldController {
     	
     	try {
 			audio.play("game", true);
-		} catch (IOException e) {
+		} catch (IOException | URISyntaxException e) {
 			cl.SevereLog("game audio file not working",e);
 			e.printStackTrace();
 		}
@@ -76,7 +78,7 @@ public class WorldController {
         tem.addMemento(Originator.saveStateToMemento());
     }
     
-    private List<GameObject> listCloner(List<GameObject>target){
+    public List<GameObject> listCloner(List<GameObject>target){
         List<GameObject>output = new LinkedList<>();
         for(int i=0;i<target.size();i++){
             output.add(gameObjectCloner(target.get(i)));
@@ -237,7 +239,7 @@ public class WorldController {
     private void playAnimationSound(String name) {
     	try {
 			audio.play(name, false);
-		} catch (IOException e) {
+		} catch (IOException | URISyntaxException e) {
 			e.printStackTrace();
 		}
     }
@@ -303,10 +305,14 @@ public class WorldController {
         }
     }
 
-    public void load(){
+    public void load() throws IOException{
         FileInputStream f= null;
+        File file = new File("highscore.txt");
+        if(!file.exists()) {
+        	file.createNewFile();
+        }
         try {
-            f = new FileInputStream("highscore.txt");
+            f = new FileInputStream(file);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -328,12 +334,13 @@ public class WorldController {
     public void checkForHighScore() {
     	if(score>highScore){
             highScore=score;
+            save();
             hs=true;
             highScoreFlag=highScoreFlag+1;
             if (highScoreFlag <= 1) {
                 try {
                     audio.play("highscore", false);
-                } catch (IOException e) {
+                } catch (IOException | URISyntaxException e) {
                     e.printStackTrace();
                 }
                 highScoreSound = 0;

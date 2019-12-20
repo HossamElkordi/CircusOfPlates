@@ -6,8 +6,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -38,13 +38,15 @@ private static final long serialVersionUID = 1L;
 		audio = AudioFactory.getInstance();
 		cl = new CircusLogger();
 		try {
-			mainImage = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator")+"res" + System.getProperty("file.separator") + "Images" +System.getProperty("file.separator")+"creepyClown.jpg"));
-			start = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator")+"res" + System.getProperty("file.separator") + "Images"+System.getProperty("file.separator") + "Start_BTN.png"));
-			exit = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator")+"res" + System.getProperty("file.separator") + "Images"+System.getProperty("file.separator") + "EXIT_BTN.png"));
-			infoImage = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator")+"res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator") + "INFO_BTN.png"));
-			night = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator")+"res" + System.getProperty("file.separator") + "Images"+System.getProperty("file.separator") + "nightCircusImg.png"));
-			fire = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator")+"res" + System.getProperty("file.separator") + "Images"+System.getProperty("file.separator") + "fireCircusImg.png"));
-			ice = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator")+"res" + System.getProperty("file.separator") + "Images"+System.getProperty("file.separator") + "iceCircusImg.png"));
+			
+			mainImage = ImageIO.read(UserInterface.class.getResource("/res/Images/creepyClown.jpg"));
+			start = ImageIO.read(UserInterface.class.getResource("/res/Images/Start_BTN.png"));
+			exit = ImageIO.read(UserInterface.class.getResource("/res/Images/Exit_BTN.png"));
+			infoImage = ImageIO.read(UserInterface.class.getResource("/res/Images/Info_BTN.png"));
+			night = ImageIO.read(UserInterface.class.getResource("/res/Images/nightCircusImg.png"));
+			fire = ImageIO.read(UserInterface.class.getResource("/res/Images/fireCircusImg.png"));
+			ice = ImageIO.read(UserInterface.class.getResource("/res/Images/iceCircusImg.png"));
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -181,6 +183,9 @@ private static final long serialVersionUID = 1L;
 			audio.play("intro", true);
 		} catch (IOException e1) {
 			cl.SevereLog("intro audio file not working ",e1);
+			e1.printStackTrace();
+		} catch (URISyntaxException e1) {
+			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		

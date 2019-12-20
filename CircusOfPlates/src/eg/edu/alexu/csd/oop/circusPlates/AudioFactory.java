@@ -1,8 +1,8 @@
 package eg.edu.alexu.csd.oop.circusPlates;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,9 +12,6 @@ import javafx.scene.media.MediaPlayer;
 
 @SuppressWarnings("restriction")
 public class AudioFactory {
-
-	private final String themesPath = System.getProperty("user.dir") + System.getProperty("file.separator") + "res" + System.getProperty("file.separator") + "Themes";
-	private final String extension = ".mp3";
 
 	private static AudioFactory audios;
 	private Map<String, MediaPlayer> themes;
@@ -29,10 +26,10 @@ public class AudioFactory {
 		return (audios == null) ? audios = new AudioFactory() : audios;
 	}
 
-	public void play(String themeName, boolean continuous) throws FileNotFoundException, IOException {
+	public void play(String themeName, boolean continuous) throws FileNotFoundException, IOException, URISyntaxException {
 		MediaPlayer mp = themes.get(themeName);
 		if(mp == null) {
-			Media md = new Media(new File(themesPath + System.getProperty("file.separator") + themeName + extension).toURI().toString());
+			Media md = new Media(AudioFactory.class.getResource("/res/Themes/"+ themeName + ".mp3").toURI().toString());
 			mp = new MediaPlayer(md);
 			themes.put(themeName, mp);
 		}
@@ -53,5 +50,5 @@ public class AudioFactory {
 		this.current.stop();
 		this.current = themes.get(current);
 	}
-	
+		
 }

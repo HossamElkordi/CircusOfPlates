@@ -1,8 +1,8 @@
 package eg.edu.alexu.csd.oop.objects;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
 
@@ -16,7 +16,7 @@ public class clownObject implements GameObject, Cloneable{
     private int x;
     private int y;
     private boolean visible;
-    String path = System.getProperty("user.dir")+System.getProperty("file.separator")+"res" + System.getProperty("file.separator") +"Images"+System.getProperty("file.separator") + "clown.png";
+    URL path = clownObject.class.getResource("/res/Images/clown.png");
 
 
     public clownObject(int posX, int posY){
@@ -25,7 +25,7 @@ public class clownObject implements GameObject, Cloneable{
         this.visible = true;
         // create a bunch of buffered images and place into an array, to be displayed sequentially
         try {
-            spriteImages[0] = ImageIO.read(new File(path));
+            spriteImages[0] = ImageIO.read(path);
         } catch (IOException e) {
             e.printStackTrace();
         }

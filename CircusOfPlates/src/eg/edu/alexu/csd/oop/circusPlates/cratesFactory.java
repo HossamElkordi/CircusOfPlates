@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.circusPlates;
 
+import java.net.URISyntaxException;
 import java.util.List;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
@@ -11,11 +12,11 @@ public class cratesFactory {
     private List<Class<GameObject>> loadedCls;
     private DynamicLoadObjects dlo;
     
-    private cratesFactory(){
+    private cratesFactory() throws URISyntaxException{
     	dlo = DynamicLoadObjects.getInstance();
     	loadedCls = dlo.getLoadedCls();
     }
-    public static cratesFactory getInstance(){
+    public static cratesFactory getInstance() throws URISyntaxException{
         if(cf==null){cf=new cratesFactory();}
         return cf;
     }

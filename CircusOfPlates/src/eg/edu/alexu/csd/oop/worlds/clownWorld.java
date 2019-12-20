@@ -3,8 +3,9 @@ package eg.edu.alexu.csd.oop.worlds;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -18,6 +19,7 @@ import eg.edu.alexu.csd.oop.circusPlates.AudioFactory;
 import eg.edu.alexu.csd.oop.circusPlates.CircusFacade;
 import eg.edu.alexu.csd.oop.circusPlates.CircusLogger;
 import eg.edu.alexu.csd.oop.circusPlates.PausePanel;
+import eg.edu.alexu.csd.oop.circusPlates.UserInterface;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 import eg.edu.alexu.csd.oop.memento.CareTaker;
@@ -42,14 +44,18 @@ public class clownWorld implements World{
     boolean replayflag = false;
     private AudioFactory audio;
     private int replayindex=0;
-    private CareTaker tem=new CareTaker();
+    private CareTaker tem = CareTaker.getInstance();
     private int counter=0;
     private Strategy s;
     private CircusLogger cl ;
     private WorldController controller;
     
-    public clownWorld(int screenWidth, int screenHeight,String bgPath) {
-    	controller = new WorldController();
+    public clownWorld(int screenWidth, int screenHeight,URL bgPath) {
+    	try {
+			controller = new WorldController();
+		} catch (URISyntaxException e1) {
+			e1.printStackTrace();
+		}
     	cl = new CircusLogger();
     	audio = AudioFactory.getInstance();
         constant.add(new BackgroundObject(0,0,bgPath));//hena ba7ot el background fel constant
@@ -61,11 +67,11 @@ public class clownWorld implements World{
         controller.setMemento(constant, control, moving);
         try {
 			audio.play("game", true);
-		} catch (IOException e) {
+			controller.load();
+		} catch (IOException | URISyntaxException e) {
 			cl.SevereLog("game audio file not working",e);
 			e.printStackTrace();
 		}
-        controller.load();
     }
     
     public boolean refresh() {
@@ -170,8 +176,9 @@ public class clownWorld implements World{
         return constant;
     }
 
-    public List<GameObject> getMovableObjects() {
-        return moving;
+    @SuppressWarnings("unchecked")
+	public List<GameObject> getMovableObjects() {
+    	return (List<GameObject>) ((LinkedList<GameObject>)moving).clone();
     }
 
     public List<GameObject> getControlableObjects() {
@@ -233,7 +240,7 @@ public class clownWorld implements World{
 
     	Image img = null;
     	try {
-			img = ImageIO.read(new File(System.getProperty("user.dir")+System.getProperty("file.separator")+"res" + System.getProperty("file.separator") +"Images"+System.getProperty("file.separator") + name + ".png"));
+			img = ImageIO.read(clownWorld.class.getResource("/res/Images/" + name + ".png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -245,7 +252,7 @@ public class clownWorld implements World{
 		audio.stop();
 		try {
 			audio.play("gameOver", false);
-		} catch (IOException e) {
+		} catch (IOException | URISyntaxException e) {
 			cl.SevereLog("gameOver audio file not working",e);
 			e.printStackTrace();
 		}

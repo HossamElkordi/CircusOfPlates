@@ -4,7 +4,16 @@ import java.util.ArrayList;
 
 public class CareTaker {
 
-private ArrayList<memento> mementoList = new ArrayList<memento>();
+	private ArrayList<memento> mementoList = new ArrayList<memento>();
+	private static CareTaker obj;
+
+	private CareTaker() {
+		
+	}
+	
+	public static CareTaker getInstance() {
+		return (obj == null)? obj = new CareTaker() : obj;
+	}
 	
 	public void addMemento(memento memento) {
 		if(this.mementoList.size() == 201) {

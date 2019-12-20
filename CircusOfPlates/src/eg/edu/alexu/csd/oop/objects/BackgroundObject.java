@@ -1,8 +1,8 @@
 package eg.edu.alexu.csd.oop.objects;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
 
@@ -12,15 +12,15 @@ public class BackgroundObject implements GameObject, Cloneable{
 	
 	private int x, y;
 	private BufferedImage[] bg;
-	private String path;
+	private URL path;
 	
-	public BackgroundObject(int x, int y, String path) {
+	public BackgroundObject(int x, int y, URL path) {
 		this.path=path;
 		setX(x);
 		setY(y);
 		bg = new BufferedImage[1];
 		try {
-			bg[0] = ImageIO.read(new File(path));
+			bg[0] = ImageIO.read(path);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -61,7 +61,7 @@ public class BackgroundObject implements GameObject, Cloneable{
 		this.y = arg0;
 	}
 	
-	public String getPath() {
+	public URL getPath() {
 		return path;
 	}
 

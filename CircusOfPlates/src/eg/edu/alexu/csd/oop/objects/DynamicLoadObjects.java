@@ -17,7 +17,9 @@ public class DynamicLoadObjects {
 	
 	private static DynamicLoadObjects object;
 	
-	private final String jarsPath = System.getProperty("user.dir") + System.getProperty("file.separator") + "res" + System.getProperty("file.separator") + "Jars";
+//	private final URL jarsPath = DynamicLoadObjects.class.getResource("/res/Jars");
+	
+	private final String jarsPath = "src/res" + System.getProperty("file.separator") + "Jars";
 	
 	private List<Class<GameObject>> loadedCls;
 
@@ -26,11 +28,11 @@ public class DynamicLoadObjects {
 		loadedCls = new ArrayList<Class<GameObject>>();
 		
 		File jarsDir = new File(jarsPath);
-		String[] paths = jarsDir.list();
+		File[] paths = jarsDir.listFiles();
 		for (int i = 0; i < paths.length; i++) {
 			try {
-				if(paths[i].toLowerCase().contains(".jar")) {
-					getClassesFromJar(jarsPath + System.getProperty("file.separator") + paths[i]);
+				if(paths[i].getAbsolutePath().toLowerCase().contains(".jar")) {
+					getClassesFromJar(paths[i]);
 				}
 			} catch (ClassNotFoundException | IOException e) {
 				e.printStackTrace();
@@ -48,7 +50,7 @@ public class DynamicLoadObjects {
 	}
 	
 	@SuppressWarnings({ "unchecked", "resource" })
-	private void getClassesFromJar(String jarPath) throws IOException, ClassNotFoundException {
+	private void getClassesFromJar(File jarPath) throws IOException, ClassNotFoundException {
 		JarFile jarFile = new JarFile(jarPath);
 		Enumeration<JarEntry> e = jarFile.entries();
 

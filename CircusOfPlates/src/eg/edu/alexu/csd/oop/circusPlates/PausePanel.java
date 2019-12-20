@@ -7,8 +7,8 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -71,21 +71,17 @@ private static final long serialVersionUID = 1L;
 				}
 				setVisible(false);
 				CircusFacade.getController().resume();
-				String path = ((BackgroundObject)currentWorld.getConstantObjects().get(0)).getPath();
+				URL path = ((BackgroundObject)currentWorld.getConstantObjects().get(0)).getPath();
 				CircusFacade.getController().changeWorld(new clownWorld(1280, 687, path));
 			}
 		});
 		replayBtn.setBounds(123, 235, 54, 54);
 		
 		try {
-			mainImage = ImageIO.read(new File(System.getProperty("user.dir")+System.getProperty("file.separator")+"res" + 
-					System.getProperty("file.separator") +"Images"+ System.getProperty("file.separator") + "creepyClown.jpg"));
-			resumeImage = ImageIO.read(new File(System.getProperty("user.dir")+System.getProperty("file.separator")+"res" + 
-					System.getProperty("file.separator") +"Images"+System.getProperty("file.separator") + "Play_BTN.png"));
-			menuImage = ImageIO.read(new File(System.getProperty("user.dir")+System.getProperty("file.separator")+"res" + 
-					System.getProperty("file.separator") +"Images"+System.getProperty("file.separator") + "Menu_BTN.png"));
-			replayImage = ImageIO.read(new File(System.getProperty("user.dir")+System.getProperty("file.separator")+"res" + 
-					System.getProperty("file.separator") +"Images"+System.getProperty("file.separator") + "Replay_BTN.png"));
+			mainImage = ImageIO.read(PausePanel.class.getResource("/res/Images/creepyClown.jpg"));
+			resumeImage = ImageIO.read(PausePanel.class.getResource("/res/Images/Play_BTN.png"));
+			menuImage = ImageIO.read(PausePanel.class.getResource("/res/Images/Menu_BTN.png"));
+			replayImage = ImageIO.read(PausePanel.class.getResource("/res/Images/Replay_BTN.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

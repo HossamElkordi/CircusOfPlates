@@ -1,9 +1,9 @@
 package eg.edu.alexu.csd.oop.objects;
 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class greenBox extends fallingObject{
     private static final int MAX_MSTATE = 1;
@@ -15,7 +15,7 @@ public class greenBox extends fallingObject{
     public greenBox(){
         // create a bunch of buffered images and place into an array, to be displayed sequentially
         try {
-            spriteImages[0] = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator") + "res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator")  +"greenboxsmall.png"));
+            spriteImages[0] = ImageIO.read(greenBox.class.getResource("/res/Images/greenboxsmall.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

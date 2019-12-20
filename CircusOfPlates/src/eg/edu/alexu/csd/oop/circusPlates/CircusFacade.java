@@ -1,5 +1,7 @@
 package eg.edu.alexu.csd.oop.circusPlates;
 
+import java.net.URL;
+
 import javax.swing.JButton;
 
 import eg.edu.alexu.csd.oop.game.GameEngine;
@@ -8,9 +10,9 @@ import eg.edu.alexu.csd.oop.worlds.clownWorld;
 
 public class CircusFacade {
 
-	private final String FIRE_PATH  =  System.getProperty("user.dir") + System.getProperty("file.separator") + "res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator")  + "fireCircusImg.png";
-	private final String NIGHT_PATH = System.getProperty("user.dir") + System.getProperty("file.separator")+"res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator") + "nightCircusImg.png";
-	private final String ICE_PATH   = System.getProperty("user.dir") + System.getProperty("file.separator")+"res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator") + "iceCircusImg.png";
+	private final URL FIRE_PATH  = CircusFacade.class.getResource("/res/Images/fireCircusImg.png");
+	private final URL NIGHT_PATH = CircusFacade.class.getResource("/res/Images/nightCircusImg.png");
+	private final URL ICE_PATH   = CircusFacade.class.getResource("/res/Images/iceCircusImg.png");
 	
 	private static GameController controller;
 	

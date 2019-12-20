@@ -1,11 +1,11 @@
 package eg.edu.alexu.csd.oop.objects;
 
-import eg.edu.alexu.csd.oop.game.GameObject;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+
+import eg.edu.alexu.csd.oop.game.GameObject;
 
 public class bonusObj extends fallingObject {
     private static final int MAX_MSTATE = 8;
@@ -24,10 +24,10 @@ public class bonusObj extends fallingObject {
         // create a bunch of buffered images and place into an array, to be displayed sequentially
         try {
             for(int i=0;i<4;i++){
-                spriteImages[i] = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator") + "res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator") +"bonus"+i+".png"));
+                spriteImages[i] = ImageIO.read(bonusObj.class.getResource("/res/Images/bonus"+i+".png"));
             }
             for(int i=4;i<8;i++){
-                spriteImages[i] = ImageIO.read(new File(System.getProperty("user.dir")+ System.getProperty("file.separator") + "res" +System.getProperty("file.separator") + "Images"+ System.getProperty("file.separator") +"bonus"+(7-i)+".png"));
+                spriteImages[i] = ImageIO.read(bonusObj.class.getResource("/res/Images/bonus"+(7-i)+".png"));
             }
 
 
