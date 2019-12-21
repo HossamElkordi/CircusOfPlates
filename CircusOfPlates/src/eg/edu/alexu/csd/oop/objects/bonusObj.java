@@ -32,7 +32,7 @@ public class bonusObj extends fallingObject {
 
 
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
 

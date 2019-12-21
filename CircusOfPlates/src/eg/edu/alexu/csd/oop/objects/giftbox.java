@@ -17,7 +17,7 @@ public class giftbox extends fallingObject{
         try {
             spriteImages[0] = ImageIO.read(giftbox.class.getResource("/res/Images/gift.png"));
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
     public giftbox clone(){

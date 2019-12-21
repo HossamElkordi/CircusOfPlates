@@ -17,7 +17,7 @@ public class turquoiseBox extends fallingObject{
         try {
             spriteImages[0] = ImageIO.read(turquoiseBox.class.getResource("/res/Images/turquoiseboxsmall.png"));
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
     public turquoiseBox clone(){

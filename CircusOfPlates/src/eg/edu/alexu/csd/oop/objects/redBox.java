@@ -17,7 +17,7 @@ public class redBox extends fallingObject{
         try {
             spriteImages[0] = ImageIO.read(redBox.class.getResource("/res/Images/redboxsmall.png"));
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
     public redBox clone(){

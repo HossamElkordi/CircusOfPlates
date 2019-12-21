@@ -17,7 +17,7 @@ public class pinkBox extends fallingObject{
         try {
             spriteImages[0] = ImageIO.read(pinkBox.class.getResource("/res/Images/pinkboxsmall.png"));
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
     public pinkBox clone(){

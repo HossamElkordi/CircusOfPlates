@@ -17,7 +17,7 @@ public class originalbox extends fallingObject{
         try {
             spriteImages[0] = ImageIO.read(originalbox.class.getResource("/res/Images/original.png"));
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
     public originalbox clone(){

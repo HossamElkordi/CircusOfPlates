@@ -27,7 +27,7 @@ public class clownObject implements GameObject, Cloneable{
         try {
             spriteImages[0] = ImageIO.read(path);
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
 

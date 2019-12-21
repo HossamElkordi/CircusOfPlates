@@ -17,7 +17,7 @@ public class blueBall extends fallingObject{
         try {
             spriteImages[0] = ImageIO.read(blueBall.class.getResource("/res/Images/blueball.png"));
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
     public blueBall clone(){

@@ -17,7 +17,7 @@ public class turquoiseBall extends fallingObject{
         try {
             spriteImages[0] = ImageIO.read(turquoiseBall.class.getResource("/res/Images/turquoiseeball.png"));
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
     public turquoiseBall clone(){

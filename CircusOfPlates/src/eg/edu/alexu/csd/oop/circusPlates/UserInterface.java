@@ -48,7 +48,7 @@ private static final long serialVersionUID = 1L;
 			ice = ImageIO.read(UserInterface.class.getResource("/res/Images/iceCircusImg.png"));
 
 		} catch (IOException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 		initialize();
 		cl.InfoLog("User Interface initialized");

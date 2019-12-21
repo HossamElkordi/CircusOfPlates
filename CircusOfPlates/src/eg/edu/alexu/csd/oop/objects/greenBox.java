@@ -17,7 +17,7 @@ public class greenBox extends fallingObject{
         try {
             spriteImages[0] = ImageIO.read(greenBox.class.getResource("/res/Images/greenboxsmall.png"));
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
     public greenBox clone(){

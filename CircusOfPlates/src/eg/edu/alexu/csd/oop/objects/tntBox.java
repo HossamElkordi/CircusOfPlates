@@ -17,7 +17,7 @@ public class tntBox extends fallingObject{
         try {
             spriteImages[0] = ImageIO.read(tntBox.class.getResource("/res/Images/tntsmall.png"));
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
     public tntBox clone(){

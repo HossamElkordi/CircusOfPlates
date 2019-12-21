@@ -28,7 +28,7 @@ public class explosion extends fallingObject {
 			}
 
 		} catch (IOException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 	}
 

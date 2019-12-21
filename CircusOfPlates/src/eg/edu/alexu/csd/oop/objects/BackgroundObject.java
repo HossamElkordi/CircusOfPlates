@@ -22,7 +22,7 @@ public class BackgroundObject implements GameObject, Cloneable{
 		try {
 			bg[0] = ImageIO.read(path);
 		} catch (IOException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 	}
 	public BackgroundObject clone(){

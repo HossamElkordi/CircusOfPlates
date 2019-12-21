@@ -19,7 +19,6 @@ import eg.edu.alexu.csd.oop.circusPlates.AudioFactory;
 import eg.edu.alexu.csd.oop.circusPlates.CircusFacade;
 import eg.edu.alexu.csd.oop.circusPlates.CircusLogger;
 import eg.edu.alexu.csd.oop.circusPlates.PausePanel;
-import eg.edu.alexu.csd.oop.circusPlates.UserInterface;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 import eg.edu.alexu.csd.oop.memento.CareTaker;
@@ -242,7 +241,7 @@ public class clownWorld implements World{
     	try {
 			img = ImageIO.read(clownWorld.class.getResource("/res/Images/" + name + ".png"));
 		} catch (IOException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
     	button.setIcon(new ImageIcon(img.getScaledInstance(button.getWidth(), button.getHeight(), Image.SCALE_SMOOTH)));
     	components.add(button);

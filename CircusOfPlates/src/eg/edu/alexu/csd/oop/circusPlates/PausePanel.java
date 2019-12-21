@@ -83,7 +83,7 @@ private static final long serialVersionUID = 1L;
 			menuImage = ImageIO.read(PausePanel.class.getResource("/res/Images/Menu_BTN.png"));
 			replayImage = ImageIO.read(PausePanel.class.getResource("/res/Images/Replay_BTN.png"));
 		} catch (IOException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 		
 		resumeBtn.setIcon(new ImageIcon(resumeImage.getScaledInstance(resumeBtn.getWidth(), resumeBtn.getHeight(), Image.SCALE_SMOOTH)));

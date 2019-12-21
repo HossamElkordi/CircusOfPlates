@@ -17,7 +17,7 @@ public class redBall extends fallingObject{
         try {
             spriteImages[0] = ImageIO.read(redBall.class.getResource("/res/Images/redball.png"));
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
     public redBall clone(){
