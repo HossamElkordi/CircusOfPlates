@@ -346,7 +346,7 @@ public class WorldController {
                 highScoreSound = 0;
             }
         }else {
-        	hs=true;
+        	hs=false;
         }
 
     }
